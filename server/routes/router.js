@@ -1,12 +1,17 @@
 import express from 'express';
-import { registerUser , loginUser } from '../controllers/UsersApi';
+
+import { registerUser , loginUser, findUserByUsername } from '../controllers/UsersApi.js';
 
 const userRouter = express.Router();
 
+
 // Route for user registration
-router.post('/register', registerUser);
+userRouter.post('/register', registerUser);
 
 // Route for user login
-router.post('/login', loginUser);
+userRouter.post('/login', loginUser);
+
+// userRouter.get('/',allUsers)
+userRouter.get('/find', findUserByUsername);
 
 export default userRouter;
